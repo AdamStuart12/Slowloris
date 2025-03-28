@@ -1,3 +1,7 @@
+import socket
+import random
+
+
 IP = "10.9.0.5"
 port = 80
 
