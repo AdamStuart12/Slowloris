@@ -33,6 +33,7 @@ user_agents = [
 
 def create_socket(IP, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
     s.settimeout(4) # maybe this line can be removed or set really high idk yet
     s.connect((IP, port))
     s.send(f"GET /?{random.randint(1,255)} HTTP/1.1\r\n".encode())
