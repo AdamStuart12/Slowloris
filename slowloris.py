@@ -37,11 +37,17 @@ if __name__ == "__main__":
     args = sys.argv
 
     if len(args) != 4:
+        print("Invalid Usage")
         print("Usage: python slowloris.py <IP> <Port> <Socket Count>")
         sys.exit(1)
 
-    IP = args[1]
-    port = args[2]
-    socket_count = args[3]
-    
+    try:
+        IP = args[1]
+        port = int(args[2])
+        socket_count = int(args[3])
+    except:
+        print("Invalid Usage")
+        print("Usage: python slowloris.py <IP> <Port> <Socket Count>")
+        sys.exit(1)
+        
     slowloris(IP, port, socket_count)
