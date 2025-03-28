@@ -43,3 +43,17 @@ try:
     s.send(f"X-a {random.randint(1,255)}\r\n".encode())
 except Exception as e:
     print(f"socket removed: {e}")
+
+
+
+'''
+            if len(sockets) < socket_count:
+                try:
+                    s = create_socket(IP, port)
+                    sockets.append(s)
+                    print(len(sockets))
+                except Exception as e:
+                    print("socket could not be established")
+                    print(e)
+                    break
+            '''
