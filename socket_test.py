@@ -1,4 +1,4 @@
-IP = 10.9.0.5
+IP = "10.9.0.5"
 port = 80
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
